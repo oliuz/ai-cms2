@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/manga', 'MangaController@index')->name('manga.index');
+});
+
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout.get');
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
