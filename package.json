@@ -7,7 +7,7 @@
         "watch-poll": "npm run watch -- --watch-poll",
         "watchify": "watchify -vd -p browserify-hmr -e resources/assets/js/vue.js -o public/js/vue.js",
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "prod": "npm run production",
+        "prod": "npm run production && npm run prodify",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prodify": "cross-env NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o public/css/vue.css ] -e resources/assets/js/vue.js | uglifyjs -c warnings=false -m > public/js/vue.js"
     },
