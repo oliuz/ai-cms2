@@ -10,4 +10,9 @@ class MangaController extends Controller
     {
         return view('manga.index');
     }
+
+    public function top()
+    {
+        return view('manga.top');
+    }
 }

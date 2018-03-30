@@ -16,7 +16,10 @@ Route::get('/', function () {
 })->name('home');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/manga', 'MangaController@index')->name('manga.index');
+    Route::prefix('manga')->name('manga.')->group(function () {
+        Route::get('/', 'MangaController@index')->name('index');
+        Route::get('top', 'MangaController@top')->name('top');
+    });
 });
 
 Auth::routes();
