@@ -10,6 +10,8 @@
     <link href="{{ asset('css/ionicons.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/pace.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/site.css') }}" rel="stylesheet" />
 </head>
 
 <body>

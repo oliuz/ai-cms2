@@ -1,0 +1,14 @@
+.ui.menu .item.logo {
+    padding-left: 6px;
+    padding-top: 11px;
+    height: auto;
+}
+
+.logo img {
+    width: 48px !important;
+    height: 48px;
+}
+
+#contextWrap {
+    height: 100%;
+}

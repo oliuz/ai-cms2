@@ -1,7 +1,7 @@
 <div class="ui sidebar vertical left menu overlay  borderless visible sidemenu inverted  grey" style="-webkit-transition-duration: 0.1s; transition-duration: 0.1s;" data-color="grey">
     <a class="item logo" href="index.html">
         <img src="img/logo.png" alt="stagblogo" />
-        <img src="img/thumblogo.png" alt="stagblogo" class="displaynone" />
+        <img src="img/logo.png" alt="stagblogo" class="displaynone" />
     </a>
     <div class="ui accordion inverted">
 
