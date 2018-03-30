@@ -29,6 +29,10 @@
     background-color: white;
 }
 
+.ui.items.manga {
+    margin-top: 0;
+}
+
 .ui.items.manga>.item {
     border-bottom: 1px solid #ddd;
     max-height: 84px;
@@ -105,4 +109,16 @@
     border-bottom: 1px solid #ddd;
     border-radius: 0;
     box-shadow: none;
+}
+
+.no-data {
+    position: relative;
+    top: 50%;
+    left: 0;
+    right: 0;
+    font-family: roboto, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    color: #999;
+    transform: translateY(-50%);
 }

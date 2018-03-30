@@ -6,8 +6,11 @@
         <div class="ui segment">
             <h5 class="ui header">Manga List</h5>
         </div>
-        <div class="ui grid horizontal segments">
-            <div class="ui segment five wide column p-0">
+        <div class="ui three column grid horizontal segments">
+            <div class="column p-0 ui segment compact">
+                <div class="ui active dimmer">
+                    <div class="ui indeterminate text loader">Preparing Files</div>
+                </div>
                 <div class="ui items manga">
                     <div class="ui fluid right icon left action input search">
                         <button class="ui icon green large button">
@@ -71,7 +74,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ui segment five wide column p-0">
+            <div class="column p-0 ui segment compact" id="test">
                 <div class="ui items manga">
                     <div class="ui fluid right icon left action input search">
                         <button class="ui icon green large button">
@@ -135,10 +138,22 @@
                     </div>
                 </div>
             </div>
-            <div class="ui segment six wide column">
-                <p>Detail manga or chapter</p>
+            <div class="column p-0 ui segment compact">
+                <div class="no-data">No Data</div>
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+$(document).ready(function () {
+    $('#test').transition('hide')
+
+    setTimeout(() => {
+        $('#test').transition('fade left')
+    }, 1000)
+})
+</script>
 @endsection

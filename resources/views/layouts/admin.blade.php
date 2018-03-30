@@ -13,6 +13,7 @@
     <link href="{{ asset('css/pace.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/site.css') }}" rel="stylesheet" />
+    @yield('styles')
 </head>
 
 <body>
@@ -37,6 +38,7 @@
     <script src="{{asset('js/jquery.nicescroll.min.js')}}"></script>
     <script src="{{asset('js/pace.js')}}" data-pace-options='{ "ajax": false }'></script>
     <script src="{{asset('js/admin.js')}}"></script>
+    @yield('scripts')
 </body>
 
 </html>
