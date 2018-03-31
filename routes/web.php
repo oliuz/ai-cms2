@@ -19,6 +19,9 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('manga')->name('manga.')->group(function () {
         Route::get('/', 'MangaController@index')->name('index');
         Route::get('top', 'MangaController@top')->name('top');
+        Route::get('create', 'MangaController@create')->name('create');
+        Route::get('edit/{id}', 'MangaController@edit')->name('edit');
+        
     });
 });
 
