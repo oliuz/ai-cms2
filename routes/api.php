@@ -22,5 +22,6 @@ Route::middleware('auth:api')->group(function () {
         Route::post('edit/{id}', 'MangaController@update')->name('update');
         Route::post('delete/{id}', 'MangaController@delete')->name('delete');
         Route::post('create', 'MangaController@store')->name('store');
+        Route::get('list', 'MangaController@list')->name('list');
     });
 });

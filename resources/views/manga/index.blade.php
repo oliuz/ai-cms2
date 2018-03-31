@@ -8,73 +8,15 @@
         </div>
         <div class="ui three column grid horizontal segments">
             <div class="column p-0 ui segment compact">
-                <div class="ui active dimmer">
-                    <div class="ui indeterminate text loader">Preparing Files</div>
-                </div>
-                <div class="ui items manga">
-                    <div class="ui fluid right icon left action input search">
-                        <button class="ui icon green large button">
-                            <i class="plus icon"></i>
-                        </button>
-                        <i class="search icon"></i>
-                        <input type="text" placeholder="Search Manga...">
-                    </div>
-                    <div class="item">
-                        <div class="content">
-                            <a class="header">Shannon Garcia</a>
-                            <div class="extra">
-                                <p>Upload at : 28-03-2018 02:00</p>
-                                <p>Upload by : Administrator</p>
-                            </div>
-                        </div>
-                        <div class="control">
-                            <div class="ui vertical large buttons">
-                                <button class="ui basic icon button">
-                                    <i class="folder open icon"></i>
-                                </button>
-                                <button class="ui red icon button">
-                                    <i class="trash icon"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="content">
-                            <a class="header">Shannon Garcia</a>
-                            <div class="extra">
-                                <p>Upload at : 28-03-2018 02:00</p>
-                                <p>Upload by : Administrator</p>
-                            </div>
-                        </div>
-                        <div class="control">
-                            <div class="ui vertical large buttons">
-                                <button class="ui basic icon button">
-                                    <i class="folder open icon"></i>
-                                </button>
-                                <button class="ui red icon button">
-                                    <i class="trash icon"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ui pagination">
-                        <button class="ui large icon basic button">
-                            <i class="fast backward icon"></i>
-                        </button>
-                        <button class="ui large icon basic button">
-                            <i class="step backward icon"></i>
-                        </button>
-                        <span>Showing 2 to 10 of 100 items</span>
-                        <button class="ui large icon basic button">
-                            <i class="step forward icon"></i>
-                        </button>
-                        <button class="ui large icon basic button">
-                            <i class="fast forward icon"></i>
-                        </button>
-                    </div>
-                </div>
+                <loading data-name="loading-manga">
+                    <div class="ui indeterminate text loader">Loading Data</div>
+                </loading>
+                <manga-list data-api="{{ route('manga.list') }}"></manga-list>
             </div>
             <div class="column p-0 ui segment compact" id="test">
+                <div class="ui active dimmer">
+                    <div class="ui indeterminate text loader">Loading Data</div>
+                </div>
                 <div class="ui items manga">
                     <div class="ui fluid right icon left action input search">
                         <button class="ui icon green large button">
@@ -139,6 +81,9 @@
                 </div>
             </div>
             <div class="column p-0 ui segment compact">
+                <div class="ui active dimmer">
+                    <div class="ui indeterminate text loader">Loading Data</div>
+                </div>
                 <div class="no-data">No Data</div>
             </div>
         </div>

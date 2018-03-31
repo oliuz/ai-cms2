@@ -16,6 +16,13 @@ class MangaController extends Controller
         return view('manga.top');
     }
 
+    public function list()
+    {
+        return response()->json([
+            'success' => true
+        ]);
+    }
+
     public function delete($id)
     {
         return response()->json([]);

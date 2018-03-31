@@ -44,5 +44,8 @@
         "vue": "^2.5.7",
         "vueify": "^9.0.0",
         "watchify": "^3.4.0"
+    },
+    "dependencies": {
+        "semantic-ui-vue": "^0.2.6"
     }
 }

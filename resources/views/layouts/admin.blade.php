@@ -3,6 +3,8 @@
 
 <head>
     <title>@yield('title', 'AICMS')</title>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
@@ -17,7 +19,7 @@
 </head>
 
 <body>
-    <div id="contextWrap">
+    <div id="app">
         @include('layouts.parts.leftmenu')
         @include('layouts.parts.rightmenu')
         <div class="pusher">
@@ -38,6 +40,7 @@
     <script src="{{asset('js/jquery.nicescroll.min.js')}}"></script>
     <script src="{{asset('js/pace.js')}}" data-pace-options='{ "ajax": false }'></script>
     <script src="{{asset('js/admin.js')}}"></script>
+    <script src="{{asset('js/vue.js')}}"></script>
     @yield('scripts')
 </body>
 
