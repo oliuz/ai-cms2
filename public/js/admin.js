@@ -2,17 +2,6 @@
 var sideBarIsHide = false;
 var ManuelSideBarIsHide = false;
 var ManuelSideBarIsState = false;
-$(".openbtn").on("click", function() {
-    ManuelSideBarIsHide = true;
-    if (!ManuelSideBarIsState) {
-        resizeSidebar("1");
-        ManuelSideBarIsState = true;
-    } else {
-        resizeSidebar("0");
-        ManuelSideBarIsState = false;
-    }
-});
-
 
 $(window).resize(function() {
     if (ManuelSideBarIsHide == false) {
@@ -108,19 +97,6 @@ function resizeSidebar(op) {
 
 }
 
-
-
-// using context
-$('.ui.right.sidebar')
-    .sidebar({
-        context: $('#contextWrap .pusher'),
-        transition: 'slide out',
-        silent: true
-    })
-    .sidebar('attach events', '.rightsidebar');
-
-
-
 function toggleFullScreen(elem) {
     // ## The below if statement seems to work better ## if ((document.fullScreenElement && document.fullScreenElement !== null) || (document.msfullscreenElement && document.msfullscreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
     if ((document.fullScreenElement !== undefined && document.fullScreenElement === null) || (document.msFullscreenElement !== undefined && document.msFullscreenElement === null) || (document.mozFullScreen !== undefined && !document.mozFullScreen) || (document.webkitIsFullScreen !== undefined && !document.webkitIsFullScreen)) {
@@ -145,15 +121,32 @@ function toggleFullScreen(elem) {
         }
     }
 }
-$(".ui.dropdown").dropdown({
-    allowCategorySelection: true,
-    transition: "fade up"
-});
-$('.ui.accordion').accordion({
-    selector: {}
-});
 
 $(document).ready(function() {
+    $(".openbtn").on("click", function() {
+        ManuelSideBarIsHide = true;
+        if (!ManuelSideBarIsState) {
+            resizeSidebar("1");
+            ManuelSideBarIsState = true;
+        } else {
+            resizeSidebar("0");
+            ManuelSideBarIsState = false;
+        }
+    });
+
+    $('.ui.right.sidebar').sidebar({
+        context: $('#app .pusher'),
+        transition: 'slide out',
+        silent: true
+    }).sidebar('attach events', '.rightsidebar');
+
+    $(".ui.dropdown").dropdown({
+        allowCategorySelection: true,
+        transition: "fade up"
+    });
+    $('.ui.accordion').accordion({
+        selector: {}
+    });
 
     colorize();
     $('.special.cards .image').dimmer({
@@ -219,5 +212,5 @@ function colorize() {
     $(".colorize").popup({
         on: "click"
     });
-}  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');  ga('create', 'UA-96662612-1', 'auto');  ga('send', 'pageview');
+}
 //Sidebar And Navbar Coloring Function (This button on Footer)

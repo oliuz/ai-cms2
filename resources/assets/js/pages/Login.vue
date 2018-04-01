@@ -26,10 +26,13 @@ export default {
     }
   },
   methods: {
+    submit() {
+      $('#form1').submit()
+    },
     login() {
       let data = {
-        client_id: 2,
-        client_secret: "oRuuEFZH1Kb8pcnY8ubD2MMJBa7TnpyO5U49ueGq",
+        client_id: window.cliento.id,
+        client_secret: window.cliento.secret,
         grant_type: "password",
         scope: "*",
         username: $("#email").val(),
@@ -44,7 +47,7 @@ export default {
       window.localStorage.setItem("accessToken", data.access_token);
       window.localStorage.setItem("refreshToken", data.refresh_token);
 
-      $("#form1").submit();
+      this.submit()
     }
   }
 };
