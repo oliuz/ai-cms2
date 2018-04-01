@@ -17,7 +17,7 @@ class CreateMangaTable extends Migration
             $table->bigIncrements('id');
             $table->integer('id_uploader')->unsigned();
             $table->string('title', 150);
-            $table->string('slug', 150);
+            $table->string('slug', 150)->unique();
             $table->json('metadata')->nullable();
             $table->timestamps();
         });
@@ -27,6 +27,7 @@ class CreateMangaTable extends Migration
             $table->bigInteger('id_manga')->unsigned();
             $table->integer('chapter_order')->unsigned();
             $table->string('chapter_title', 100);
+            $table->string('slug', 150)->unique();
             $table->timestamps();
         });
 

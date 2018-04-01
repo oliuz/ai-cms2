@@ -22,6 +22,7 @@ class MangaSeeder extends Seeder
 
         $chapter = new Chapter;
         $chapter->id_manga = $manga->id;
+        $chapter->slug = 'chapter-first';
         $chapter->chapter_order = 1;
         $chapter->chapter_title = "Chapter first";
         $chapter->save();
