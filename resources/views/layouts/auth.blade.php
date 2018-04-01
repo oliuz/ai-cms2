@@ -28,6 +28,7 @@
     <script src="{{asset('js/jquery.nicescroll.min.js')}}"></script>
     <script src="{{asset('js/pace.js')}}" data-pace-options='{ "ajax": false }'></script>
     <script src="{{asset('js/admin.js')}}"></script>
+    <script src="{{asset('js/vue.js')}}"></script>
     <script>
         var colors = ["#FFB700", "#FF6200", "#5F6C20",
             "#00A9FF", "#54FFA9", "#B7FF46",

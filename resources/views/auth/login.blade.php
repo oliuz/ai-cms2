@@ -19,7 +19,7 @@
                     {{ __('E-Mail Address') }}:
                 </label>
                 <div class="ui fluid icon input">
-                    <input type="email" name="email" value="{{ old('email') }}" required autofocus>
+                    <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
                     <i class="icon mail outline"></i>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                     {{ __('Password') }}:
                 </label>
                 <div class="ui fluid icon input">
-                    <input type="password" name="password" style="width:100%!important;min-width:100%;width:100%;" required>
+                    <input id="password" type="password" name="password" style="width:100%!important;min-width:100%;width:100%;" required>
                     <i class="icon key"></i>
                 </div>
             </div>
@@ -43,10 +43,10 @@
                         <strong>{{ $errors->first('password') }}</strong>
                     </span>
                 @endif
-                <button type="submit" class="ui teal right labeled icon button fluid">
+                <login-btn data-oauth="{{ url('oauth/token') }}">
                     {{ __('Login') }}
                     <i class="icon sign in"></i>
-                </button>
+                </login-btn>
 
                 <a class="ui blue right labeled icon button fluid" href="{{ route('register') }}">
                     Sign Up
