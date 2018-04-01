@@ -42,6 +42,8 @@ export default {
       let data = response.data;
 
       window.localStorage.setItem("accessToken", data.access_token);
+      window.localStorage.setItem("refreshToken", data.refresh_token);
+
       $("#form1").submit();
     }
   }
