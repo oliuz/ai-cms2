@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use App\Models\Manga;
 
 class MangaController extends Controller
 {
@@ -16,10 +18,13 @@ class MangaController extends Controller
         return view('manga.top');
     }
 
-    public function list()
+    public function list(Request $request)
     {
+        $mangas = Manga::paginate(25);
+
         return response()->json([
-            'success' => true
+            'success' => true,
+            'data' => $mangas,
         ]);
     }
 
@@ -28,14 +33,23 @@ class MangaController extends Controller
         return response()->json([]);
     }
 
-    public function update($id, Response $response)
+    public function update($id, Request $request)
     {
         return response()->json([]);
     }
 
-    public function store(Response $response)
+    public function store(Request $request)
     {
-        return response()->json([]);
+        try {
+            $manga = new Manga;
+            $manga->id_uploader = Auth::guard('api')->user()->id;
+            $manga->title = $request->input('title');
+            $manga->save();
+
+            return response()->json(['success' => true ]);
+        } catch (\Exception $ex) {
+            return response()->json(['success' => false, 'error' => $ex]);
+        }
     }
 
     public function create()

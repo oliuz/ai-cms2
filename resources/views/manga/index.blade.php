@@ -11,10 +11,11 @@
                 <loading data-name="loading-manga">
                     <div class="ui indeterminate text loader">Loading Data</div>
                 </loading>
-                <manga-list data-api="{{ route('manga.list') }}"></manga-list>
+                <manga-list data-api="{{ route('manga.list') }}"
+                    data-store="{{ route('manga.store') }}"></manga-list>
             </div>
             <div class="column p-0 ui segment compact" id="test">
-                <div class="ui active dimmer">
+                <div class="ui dimmer">
                     <div class="ui indeterminate text loader">Loading Data</div>
                 </div>
                 <div class="ui items manga">
@@ -81,7 +82,7 @@
                 </div>
             </div>
             <div class="column p-0 ui segment compact">
-                <div class="ui active dimmer">
+                <div class="ui dimmer">
                     <div class="ui indeterminate text loader">Loading Data</div>
                 </div>
                 <div class="no-data">No Data</div>
