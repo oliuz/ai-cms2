@@ -12,7 +12,9 @@
                     <div class="ui indeterminate text loader">Loading Data</div>
                 </loading>
                 <manga-list data-api="{{ route('manga.list') }}"
-                    data-store="{{ route('manga.store') }}"></manga-list>
+                    data-store="{{ route('manga.store') }}"
+                    data-delete="{{ route('manga.delete') }}"
+                    data-update="{{ route('manga.update') }}"></manga-list>
             </div>
             <div class="column p-0 ui segment compact" id="test">
                 <div class="ui dimmer">

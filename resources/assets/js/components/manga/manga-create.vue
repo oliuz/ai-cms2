@@ -48,7 +48,7 @@
             },
             showModal() {
                 this.title = ''
-                this.open = true
+                this.open = this.dataShow
             }
         },
         watch: {

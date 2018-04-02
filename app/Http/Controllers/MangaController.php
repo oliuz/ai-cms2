@@ -28,12 +28,20 @@ class MangaController extends Controller
         ]);
     }
 
-    public function delete($id)
+    public function delete(Request $request)
     {
-        return response()->json([]);
+        $manga = Manga::find($request->input('id'));
+
+        if ($manga) {
+            $manga->delete();
+
+            return response()->json(['success' => true ]);
+        }
+
+        return response()->json(['success' => false ]);
     }
 
-    public function update($id, Request $request)
+    public function update(Request $request)
     {
         return response()->json([]);
     }

@@ -18,7 +18,7 @@
                         <button class="ui basic icon button">
                             <i class="folder open icon"></i>
                         </button>
-                        <button class="ui red icon button">
+                        <button class="ui red icon button" @click="deleteItem(item)">
                             <i class="trash icon"></i>
                         </button>
                     </div>
@@ -31,11 +31,13 @@
                 @prevPage="prevPage"></pagination>
         </div>
         <create :data-show.sync="showCreate" @save="saveItem" @close="closeDialog"></create>
+        <clear :data-show.sync="showDelete" @onok="deleteConfirm" @oncancel="showDelete = false"></clear>
     </div>
 </template>
 
 <script>
     import create from './manga-create.vue'
+    import clear from './manga-delete.vue'
     import pagination from '../utils/pagination.vue'
     import search from '../utils/search-box.vue'
     import axios from 'axios'
@@ -44,6 +46,7 @@
             pagination,
             search,
             create,
+            clear,
         },
         data() {
             return {
@@ -53,18 +56,22 @@
                 endItem: 0,
                 totalItem: 0,
                 items: [],
+                tmpItem: null,
                 showCreate: false,
+                showDelete: false,
             }
         },
         props: {
             dataApi: { required: true, type: String },
             dataStore: { required: true, type: String },
+            dataDelete: { required: true, type: String },
+            dataUpdate: { required: true, type: String },
         },
         methods: {
             saveItem(data) {
-                axios.post(this.dataStore, data).then(this.saveResponse)
+                axios.post(this.dataStore, data).then(this.apiResponse)
             },
-            saveResponse(response) {
+            apiResponse(response) {
                 let data = response.data
 
                 if (data.success) {
@@ -80,6 +87,15 @@
             },
             newItem() {
                 this.showCreate = true
+            },
+            deleteItem(item) {
+                this.tmpItem = item
+                this.showDelete = true
+            },
+            deleteConfirm() {
+                this.showDelete = false
+                
+                axios.post(this.dataDelete, this.tmpItem).then(this.apiResponse)
             },
             searchKey(keyword) {
             },
