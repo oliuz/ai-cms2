@@ -5,50 +5,50 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from "axios"
 export default {
-  data() {
-    return {};
-  },
-  computed: {
-    classComputed() {
-      return this.dataClass.split(" ");
-    }
-  },
-  props: {
-    dataClass: {
-      type: String,
-      default: "ui teal right labeled icon button fluid"
+    data() {
+        return {}
     },
-    dataOauth: {
-      type: String,
-      required: true
-    }
-  },
-  methods: {
-    submit() {
-      $('#form1').submit()
+    computed: {
+        classComputed() {
+            return this.dataClass.split(" ")
+        }
     },
-    login() {
-      let data = {
-        client_id: window.cliento.id,
-        client_secret: window.cliento.secret,
-        grant_type: "password",
-        scope: "*",
-        username: $("#email").val(),
-        password: $("#password").val()
-      };
-
-      axios.post(this.dataOauth, data).then(this.oauthResponse);
+    props: {
+        dataClass: {
+            type: String,
+            default: "ui teal right labeled icon button fluid"
+        },
+        dataOauth: {
+            type: String,
+            required: true
+        }
     },
-    oauthResponse(response) {
-      let data = response.data;
+    methods: {
+        submit() {
+            $("#form1").submit()
+        },
+        login() {
+            let data = {
+                client_id: window.cliento.id,
+                client_secret: window.cliento.secret,
+                grant_type: "password",
+                scope: "*",
+                username: $("#email").val(),
+                password: $("#password").val()
+            }
 
-      window.localStorage.setItem("accessToken", data.access_token);
-      window.localStorage.setItem("refreshToken", data.refresh_token);
+            axios.post(this.dataOauth, data).then(this.oauthResponse)
+        },
+        oauthResponse(response) {
+            let data = response.data
 
-      this.submit()
+            window.localStorage.setItem("accessToken", data.access_token)
+            window.localStorage.setItem("refreshToken", data.refresh_token)
+
+            this.submit()
+        }
     }
-  }
-};
+}
 </script>
