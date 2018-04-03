@@ -43,7 +43,16 @@ class MangaController extends Controller
 
     public function update(Request $request)
     {
-        return response()->json([]);
+        $manga = Manga::find($request->input('id'));
+
+        if ($manga) {
+            $manga->title = $request->input('title');
+            $manga->save();
+
+            return response()->json(['success' => true]);
+        }
+
+        return response()->json(['success' => false]);
     }
 
     public function store(Request $request)
@@ -58,15 +67,5 @@ class MangaController extends Controller
         } catch (\Exception $ex) {
             return response()->json(['success' => false, 'error' => $ex]);
         }
-    }
-
-    public function create()
-    {
-        return view('manga.create');
-    }
-
-    public function edit($id)
-    {
-        return view('manga.edit');
     }
 }

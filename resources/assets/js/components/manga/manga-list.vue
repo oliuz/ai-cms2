@@ -15,8 +15,8 @@
                 </div>
                 <div class="control">
                     <div class="ui vertical large buttons">
-                        <button class="ui basic icon button">
-                            <i class="folder open icon"></i>
+                        <button class="ui basic icon button" @click="editItem(item)">
+                            <i class="pencil icon"></i>
                         </button>
                         <button class="ui red icon button" @click="deleteItem(item)">
                             <i class="trash icon"></i>
@@ -30,7 +30,8 @@
                 :start-item.sync="startItem"
                 @prevPage="prevPage"></pagination>
         </div>
-        <create :data-show.sync="showCreate" @save="saveItem" @close="closeDialog"></create>
+        <create :data-show.sync="showCreate" @save="saveConfirm" @close="closeDialog"></create>
+        <create :data-show.sync="showEdit" @save="editConfirm" @close="closeDialog" :data-item="tmpItem"></create>
         <clear :data-show.sync="showDelete" @onok="deleteConfirm" @oncancel="showDelete = false"></clear>
     </div>
 </template>
@@ -58,6 +59,7 @@
                 items: [],
                 tmpItem: null,
                 showCreate: false,
+                showEdit: false,
                 showDelete: false,
             }
         },
@@ -68,7 +70,7 @@
             dataUpdate: { required: true, type: String },
         },
         methods: {
-            saveItem(data) {
+            saveConfirm(data) {
                 axios.post(this.dataStore, data).then(this.apiResponse)
             },
             apiResponse(response) {
@@ -84,9 +86,19 @@
             },
             closeDialog() {
                 this.showCreate = false
+                this.showEdit = false
             },
             newItem() {
                 this.showCreate = true
+            },
+            editItem(item) {
+                this.tmpItem = item
+                this.showEdit = true
+            },
+            editConfirm(data) {
+                this.tmpItem.title = data.title
+
+                axios.post(this.dataUpdate, this.tmpItem).then(this.apiResponse)
             },
             deleteItem(item) {
                 this.tmpItem = item

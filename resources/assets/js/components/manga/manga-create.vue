@@ -31,7 +31,8 @@
             }
         },
         props: {
-            dataShow: { type: Boolean, dafault: false }
+            dataShow: { type: Boolean, dafault: false },
+            dataItem: { type: Object, default() { return {} }}
         },
         methods: {
             saveData() {
@@ -55,6 +56,14 @@
             dataShow: {
                 handler(val) {
                     this.showModal()
+                }
+            },
+            dataItem: {
+                handler(val) {
+                    if ('title' in this.dataItem)
+                    {
+                        this.title = this.dataItem.title
+                    }
                 }
             }
         }
