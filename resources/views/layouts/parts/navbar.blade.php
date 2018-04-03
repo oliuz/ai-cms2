@@ -36,12 +36,11 @@
             <div class="ui dropdown item">
                 <img class="ui mini circular image" src="img/avatar/people/enid.png" alt="label-image" />
                 <div class="menu">
-                    <a class="item" href="mail.html">Inbox</a>
-                    <a class="item" href="profile.html">Profile</a>
-                    <a class="item" href="settings.html">Settings</a>
+                    <a class="item" href="">Inbox</a>
+                    <a class="item" href="">Profile</a>
+                    <a class="item" href="">Settings</a>
                     <div class="ui divider"></div>
-                    <a class="item">Need Help?</a>
-                    <a class="item" href="login.html">Sign Out</a>
+                    <a class="item" href="{{ route('logout') }}">Sign Out</a>
                 </div>
             </div>
             <a class="item labeled rightsidebar computer only">

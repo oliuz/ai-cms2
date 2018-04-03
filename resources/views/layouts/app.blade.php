@@ -33,8 +33,8 @@
                     <a class="item">Company</a>
                     <a class="item">Careers</a>
                     <div class="right item">
-                        <a class="ui inverted button">Log in</a>
-                        <a class="ui inverted button">Sign Up</a>
+                        <a class="ui inverted button" href="{{ route('login') }}">Log in</a>
+                        <a class="ui inverted button" href="{{ route('register') }}">Sign Up</a>
                     </div>
                 </div>
             </div>
