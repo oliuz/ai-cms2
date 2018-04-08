@@ -6,7 +6,7 @@
                 @keywordChanged="searchKey"></search>
             
             <div class="item" v-for="item in items" :key="item.id">
-                <div class="content">
+                <div class="content" @click="detailItem(item)">
                     <a class="header">{{ item.title }}</a>
                     <div class="extra">
                         <p>Upload at : {{ item.updated_at }}</p>
@@ -28,7 +28,8 @@
                 :total-item.sync="totalItem"
                 :end-item.sync="endItem"
                 :start-item.sync="startItem"
-                @prevPage="prevPage"></pagination>
+                @prevPage="prevPage"
+                @nextPage="nextPage"></pagination>
         </div>
         <create :data-show.sync="showCreate" @save="saveConfirm" @close="closeDialog"></create>
         <create :data-show.sync="showEdit" @save="editConfirm" @close="closeDialog" :data-item="tmpItem"></create>
@@ -70,17 +71,14 @@
             dataUpdate: { required: true, type: String },
         },
         methods: {
-            saveConfirm(data) {
-                axios.post(this.dataStore, data).then(this.apiResponse)
-            },
             apiResponse(response) {
                 let data = response.data
 
                 if (data.success) {
-                    //show success message
+                    // TODO show success message
                     this.getData()
                 } else {
-                    //show error message
+                    // TODO show error message
                     console.log(data)
                 }
             },
@@ -90,6 +88,9 @@
             },
             newItem() {
                 this.showCreate = true
+            },
+            saveConfirm(data) {
+                axios.post(this.dataStore, data).then(this.apiResponse)
             },
             editItem(item) {
                 this.tmpItem = item
@@ -109,9 +110,17 @@
                 
                 axios.post(this.dataDelete, this.tmpItem).then(this.apiResponse)
             },
+            detailItem(item) {
+                this.$bus.$emit('chapter-list', item)
+            },
             searchKey(keyword) {
+                // TODO search feature
             },
             prevPage() {
+                // TODO prev page
+            },
+            nextPage() {
+                // TODO next page
             },
             getData() {
                 let query = {
