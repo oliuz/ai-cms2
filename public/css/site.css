@@ -52,6 +52,7 @@
     height: 84px;
 }
 
+.ui.items.manga>.item.selected,
 .ui.items.manga>.item:hover {
     background-color: #00000011;
     cursor: pointer;

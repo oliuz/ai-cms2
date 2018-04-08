@@ -5,7 +5,7 @@
                 @newItem="newItem"
                 @keywordChanged="searchKey"></search>
             
-            <div class="item" v-for="item in items" :key="item.id">
+            <div class="item" :class="{selected: (item.id == activeId) }" v-for="item in items" :key="item.id">
                 <div class="content" @click="detailItem(item)">
                     <a class="header">{{ item.title }}</a>
                     <div class="extra">
@@ -62,6 +62,7 @@
                 showCreate: false,
                 showEdit: false,
                 showDelete: false,
+                activeId: null,
             }
         },
         props: {
@@ -111,6 +112,7 @@
                 axios.post(this.dataDelete, this.tmpItem).then(this.apiResponse)
             },
             detailItem(item) {
+                this.activeId = item.id
                 this.$bus.$emit('chapter-list', item)
             },
             searchKey(keyword) {
