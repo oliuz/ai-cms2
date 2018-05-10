@@ -14,10 +14,6 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->group(function () {
-    Route::get('/user', function (Request $request) {
-        return $request->user();
-    });
-
     Route::prefix('/manga')->name('manga.')->group(function () {
         Route::post('update', 'MangaController@update')->name('update');
         Route::post('delete', 'MangaController@delete')->name('delete');

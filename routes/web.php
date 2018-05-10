@@ -11,21 +11,6 @@
 |
 */
 
-Route::get('/api/get/token', function () {
-    if (Auth::check()) {
-        if (Auth::user()->tokens()->count() > 0) {
-            // Delete exiting token
-            foreach (Auth::user()->tokens as $token) {
-                $token->delete();
-            }
-        }
-
-        return response()->json(["accessToken" => Auth::user()->createToken('Token')->accessToken]);
-    }
-    
-    abort(403, 'Users not login');
-});
-
 Route::get('/', function () {
     return view('welcome');
 })->name('home');

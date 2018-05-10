@@ -10,7 +10,6 @@
         "cviebrock/eloquent-sluggable": "^4.5",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.6.*",
-        "laravel/passport": "^5.0",
         "laravel/tinker": "^1.0"
     },
     "require-dev": {
