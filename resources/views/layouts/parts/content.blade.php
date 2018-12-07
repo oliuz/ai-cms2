@@ -1,7 +1,8 @@
 <!-- Page Content-->
 <div class="container padding-bottom-2x mb-2">
   <div class="row">
-    <!-- Sidebar          -->
+    @yield('content')
+    {{-- <!-- Sidebar          -->
     <div class="col-lg-3">
       <button class="sidebar-toggle position-left" data-toggle="modal" data-target="#modalShopCategories">
         <i class="icon-layout"></i>
@@ -17,6 +18,6 @@
     </div>
     <!-- Categories-->
     <div class="col-lg-9">
-    </div>
+    </div> --}}
   </div>
 </div>
