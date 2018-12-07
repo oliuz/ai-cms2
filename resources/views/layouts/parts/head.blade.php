@@ -10,10 +10,13 @@
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" href="favicon.png">
 <!-- Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.-->
-<link rel="stylesheet" media="screen" href="css/vendor.min.css">
+<link rel="stylesheet" media="screen" href="{{ asset('css/bootstrap.min.css') }}">
+<link rel="stylesheet" media="screen" href="{{ asset('css/pe-icon-7-stroke.min.css') }}">
+<link rel="stylesheet" media="screen" href="{{ asset('css/iziToast.min.css') }}">
+<link rel="stylesheet" media="screen" href="{{ asset('css/vendor.min.css') }}">
 <!-- Main Template Styles-->
-<link id="mainStyles" rel="stylesheet" media="screen" href="css/styles.min.css">
+<link rel="stylesheet" media="screen" href="{{ asset('css/styles.min.css') }}" id="mainStyles" >
 <!-- Customizer Styles-->
-<link rel="stylesheet" media="screen" href="css/customizer.min.css">
+<link rel="stylesheet" media="screen" href="{{ asset('css/customizer.min.css') }}">
 <!-- Modernizr-->
-<script src="js/modernizr.min.js"></script>
+<script src="{{ asset('js/modernizr.min.js') }}"></script>

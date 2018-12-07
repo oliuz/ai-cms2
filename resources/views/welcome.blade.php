@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Welcome to AICMS
+Welcome to AICMS
 @endsection
 
 @section('content')
