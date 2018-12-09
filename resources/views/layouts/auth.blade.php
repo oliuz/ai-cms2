@@ -22,7 +22,6 @@
         </div>
     </div>
     
-    @include('layouts.parts.clientsecret')
     <script src="{{asset('js/app.js')}}"></script>
     <script src="{{asset('js/semantic.min.js') }}"></script>
     <script src="{{asset('js/js.cookie-2.2.0.min.js')}}"></script>

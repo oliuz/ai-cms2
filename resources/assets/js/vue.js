@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import axios from 'axios'
-import SuiVue from 'semantic-ui-vue';
 import PassportClient from './components/passport/Clients.vue'
 import AuhorizeClient from './components/passport/AuthorizedClients.vue'
 import PAT from './components/passport/PersonalAccessTokens.vue'
@@ -25,7 +24,6 @@ let setup = () => {
     axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 }
 
-Vue.use(SuiVue)
 Vue.component('manga-list', MangaList)
 Vue.component('chapter-list', ChapterList)
 Vue.component('loading', Loading)

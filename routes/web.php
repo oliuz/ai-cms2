@@ -16,6 +16,9 @@ Route::get('/', function () {
 })->name('home');
 
 Route::middleware(['auth'])->group(function () {
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::get('/', 'AdminController@index')->name('index');
+    });
     Route::prefix('manga')->name('manga.')->group(function () {
         Route::get('/', 'MangaController@index')->name('index');
         Route::get('top', 'MangaController@top')->name('top');
